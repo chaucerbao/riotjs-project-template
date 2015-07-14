@@ -1,0 +1,36 @@
+{
+  "name": "riotjs-project",
+  "version": "0.0.1",
+  "description": "A front-end application structure for development with RiotJS in a Flux architecture.",
+  "main": "./public/index.html",
+  "scripts": {
+    "develop": "mkdir -p ./public && cp ./src/index.html ./public/ && node_modules/.bin/webpack-dev-server --hot -d",
+    "build": "mkdir -p ./public && cp ./src/index.html ./public/ && node_modules/.bin/webpack -p",
+    "clean": "rm -rf ./public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chaucerbao/riotjs-starter-kit.git"
+  },
+  "author": "Alvin Chan <no@email.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chaucerbao/riotjs-starter-kit/issues"
+  },
+  "homepage": "https://github.com/chaucerbao/riotjs-starter-kit.git",
+  "devDependencies": {
+    "autoprefixer": "*",
+    "babel-loader": "*",
+    "css-loader": "*",
+    "extract-text-webpack-plugin": "*",
+    "normalize.css": "*",
+    "postcss-loader": "*",
+    "riotcontrol": "*",
+    "riotjs-loader": "*",
+    "sass-loader": "*",
+    "style-loader": "*",
+    "webpack": "*",
+    "webpack-dev-server": "*"
+  }
+}

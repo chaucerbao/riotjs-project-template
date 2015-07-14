@@ -1,0 +1,7 @@
+/node_modules/
+/public/
+
+.DS_Store
+Thumbs.db
+npm-debug.log
+tags

@@ -1,0 +1,7 @@
+@import "settings";
+
+module {
+  > h1 {
+    color: $green;
+  }
+}
