@@ -1,6 +1,12 @@
 # RiotJS Starter Kit
 
-A front-end application structure for development with RiotJS in a Flux architecture.
+A front-end application structure for development with [RiotJS] in a Flux architecture.
+
+* [RiotJS]
+* [RiotControl]
+* [Sass]
+* [Babel]
+* [Webpack]
 
 
 ## Getting started
@@ -8,19 +14,31 @@ A front-end application structure for development with RiotJS in a Flux architec
 Download and install the dependencies
 
 ```sh
-git clone https://github.com/chaucerbao/riotjs-starter-kit.git
-cd riotjs-starter-kit/
-npm install
+$ git clone https://github.com/chaucerbao/riotjs-starter-kit.git
+$ cd riotjs-starter-kit/
+$ npm install
 ```
 
 
-## Task runner targets
+## Task runner
 
-`npm run develop` compiles the source with source maps, watches for changes, and serves the site at `http://localhost:8080/`.
+### Development
+```sh
+$ npm run develop
+```
+Compiles the source with source maps, watches for changes, and serves the site at [http://localhost:8080/](http://localhost:8080/).
 
-`npm run build` compiles the source and minifies the output for production use.
+### Production
+```sh
+$ npm run build
+```
+Compiles the source and minifies the output for production use.
 
-`npm run clean` cleans the public directory of all files.
+### Clean
+```sh
+$ npm run clean
+```
+Cleans the public directory of all files.
 
 
 ## Directory Structure
@@ -54,6 +72,7 @@ src/
 └─ index.html
 ```
 
+### Usage
 `app/` contains site-wide scripts/styles and bootstrapping code, such as the router.
 
 `modules/` contains reusable DOM elements, like sidebars or chat boxes.
@@ -61,3 +80,10 @@ src/
 `pages/` contains the application's pages, like the homepage or an "about us" page.
 
 `stores/` contains Flux stores that respond to events from the dispatcher.
+
+
+[RiotJS]: https://muut.com/riotjs/
+[RiotControl]: https://github.com/jimsparkman/RiotControl
+[Sass]: http://sass-lang.com/
+[Babel]: https://babeljs.io/
+[Webpack]: http://webpack.github.io/
