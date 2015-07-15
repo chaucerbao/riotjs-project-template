@@ -41,9 +41,6 @@ module.exports = {
       riot: "riot",
       dispatcher: "riotcontrol"
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "libs"
-    }),
     new webpack.optimize.OccurenceOrderPlugin(true),
     new ExtractTextPlugin("[name].css")
   ],
