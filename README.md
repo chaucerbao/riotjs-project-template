@@ -53,6 +53,10 @@ src/
 │  ├─ index.js
 │  └─ router.js
 │
+├─ lib/
+│  ┊
+│  └─ library.js
+│
 ├─ modules/
 │  ┊
 │  └─ module/
@@ -74,6 +78,8 @@ src/
 
 ### Usage
 `app/` contains site-wide scripts/styles and bootstrapping code, such as the router.
+
+`lib/` contains libraries that can be shared across the project.
 
 `modules/` contains reusable DOM elements, like sidebars or chat boxes.
 

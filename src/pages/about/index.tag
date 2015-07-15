@@ -1,8 +1,11 @@
 import "./style";
 import "modules/module";
+import Library from "lib/library";
 
 <about>
   <h1>About</h1>
+
+  <p>Library function: {result}</p>
 
   <ul if={resources}>
     <li each={resources}>{name}</li>
@@ -14,6 +17,7 @@ import "modules/module";
 
   // The data needed for this tag
   self.resources = [];
+  self.result = Library.add(16, 29);
 
   // This tag's event handlers
   self.on("mount", () => {
