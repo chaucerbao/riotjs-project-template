@@ -2,24 +2,6 @@
 
 A front-end application structure for development with [RiotJS] in a Flux architecture.
 
-Development:
-
-* [RiotJS]
-* [RiotControl]
-* [Sass]
-* [Babel]
-
-Testing:
-
-* [Mocha]
-* [Chai]
-* [Sinon.JS]
-
-Tools:
-
-* [Karma]
-* [Webpack]
-
 
 ## Getting started
 
@@ -32,7 +14,7 @@ $ npm install
 ```
 
 
-## Task runner
+## Running tasks
 
 ### Development
 ```sh
@@ -59,7 +41,7 @@ $ npm test
 Runs the test suite against the application.
 
 
-## Directory Structure
+## Directory structure
 
 ```
 src/
@@ -126,6 +108,26 @@ test/
 `pages/` contains the application's pages, like the homepage or an "about us" page.
 
 `stores/` contains Flux stores that respond to events from the dispatcher.
+
+
+### Tools
+Development:
+
+* [RiotJS]
+* [RiotControl]
+* [Sass]
+* [Babel]
+
+Testing:
+
+* [Mocha]
+* [Chai]
+* [Sinon.JS]
+
+Misc:
+
+* [Karma]
+* [Webpack]
 
 
 [Babel]: https://babeljs.io/
