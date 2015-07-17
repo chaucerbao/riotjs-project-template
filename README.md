@@ -2,10 +2,22 @@
 
 A front-end application structure for development with [RiotJS] in a Flux architecture.
 
+Development:
+
 * [RiotJS]
 * [RiotControl]
 * [Sass]
 * [Babel]
+
+Testing:
+
+* [Mocha]
+* [Chai]
+* [Sinon.JS]
+
+Tools:
+
+* [Karma]
 * [Webpack]
 
 
@@ -116,8 +128,12 @@ test/
 `stores/` contains Flux stores that respond to events from the dispatcher.
 
 
-[RiotJS]: https://muut.com/riotjs/
-[RiotControl]: https://github.com/jimsparkman/RiotControl
-[Sass]: http://sass-lang.com/
 [Babel]: https://babeljs.io/
+[Chai]: http://chaijs.com/
+[Karma]: https://karma-runner.github.io/
+[Mocha]: http://mochajs.org/
+[RiotControl]: https://github.com/jimsparkman/RiotControl
+[RiotJS]: https://muut.com/riotjs/
+[Sass]: http://sass-lang.com/
+[Sinon.JS]: http://sinonjs.org/
 [Webpack]: http://webpack.github.io/
