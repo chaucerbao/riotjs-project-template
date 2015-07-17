@@ -40,6 +40,12 @@ $ npm run clean
 ```
 Cleans the public directory of all files.
 
+### Test
+```sh
+$ npm test
+```
+Runs the test suite against the application.
+
 
 ## Directory Structure
 
@@ -74,6 +80,28 @@ src/
 │  └─ store.js
 │
 └─ index.html
+
+test/
+├─ app/
+│  ┊
+│  ├─ index.spec.js
+│  └─ router.spec.js
+│
+├─ lib/
+│  ┊
+│  └─ library.spec.js
+│
+├─ modules/
+│  ┊
+│  └─ module.spec.js
+│
+├─ pages/
+│  ┊
+│  └─ page.spec.js
+│
+└─ stores/
+   ┊
+   └─ store.spec.js
 ```
 
 ### Usage
