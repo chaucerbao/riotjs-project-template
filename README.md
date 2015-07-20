@@ -1,6 +1,6 @@
 # RiotJS Starter Kit
 
-A front-end application structure for development with RiotJS in a Flux architecture.
+A front-end application structure for development with [RiotJS] in a Flux architecture.
 
 
 ## Getting started
@@ -8,22 +8,40 @@ A front-end application structure for development with RiotJS in a Flux architec
 Download and install the dependencies
 
 ```sh
-git clone https://github.com/chaucerbao/riotjs-starter-kit.git
-cd riotjs-starter-kit/
-npm install
+$ git clone https://github.com/chaucerbao/riotjs-starter-kit.git
+$ cd riotjs-starter-kit/
+$ npm install
 ```
 
 
-## Task runner targets
+## Running tasks
 
-`npm run develop` compiles the source with source maps, watches for changes, and serves the site at `http://localhost:8080/`.
+### Development
+```sh
+$ npm run develop
+```
+Compiles the source with source maps, watches for changes, and serves the site at [http://localhost:8080/](http://localhost:8080/).
 
-`npm run build` compiles the source and minifies the output for production use.
+### Production
+```sh
+$ npm run build
+```
+Compiles the source and minifies the output for production use.
 
-`npm run clean` cleans the public directory of all files.
+### Clean
+```sh
+$ npm run clean
+```
+Cleans the public directory of all files.
+
+### Test
+```sh
+$ npm test
+```
+Runs the test suite against the application.
 
 
-## Directory Structure
+## Directory structure
 
 ```
 src/
@@ -34,6 +52,10 @@ src/
 │  │  └─ index.scss
 │  ├─ index.js
 │  └─ router.js
+│
+├─ lib/
+│  ┊
+│  └─ library.js
 │
 ├─ modules/
 │  ┊
@@ -52,12 +74,68 @@ src/
 │  └─ store.js
 │
 └─ index.html
+
+test/
+├─ app/
+│  ┊
+│  ├─ index.spec.js
+│  └─ router.spec.js
+│
+├─ lib/
+│  ┊
+│  └─ library.spec.js
+│
+├─ modules/
+│  ┊
+│  └─ module.spec.js
+│
+├─ pages/
+│  ┊
+│  └─ page.spec.js
+│
+└─ stores/
+   ┊
+   └─ store.spec.js
 ```
 
+### Usage
 `app/` contains site-wide scripts/styles and bootstrapping code, such as the router.
+
+`lib/` contains libraries that can be shared across the project.
 
 `modules/` contains reusable DOM elements, like sidebars or chat boxes.
 
 `pages/` contains the application's pages, like the homepage or an "about us" page.
 
 `stores/` contains Flux stores that respond to events from the dispatcher.
+
+
+### Tools
+Development:
+
+* [RiotJS]
+* [RiotControl]
+* [Sass]
+* [Babel]
+
+Testing:
+
+* [Mocha]
+* [Chai]
+* [Sinon.JS]
+
+Misc:
+
+* [Karma]
+* [Webpack]
+
+
+[Babel]: https://babeljs.io/
+[Chai]: http://chaijs.com/
+[Karma]: https://karma-runner.github.io/
+[Mocha]: http://mochajs.org/
+[RiotControl]: https://github.com/jimsparkman/RiotControl
+[RiotJS]: https://muut.com/riotjs/
+[Sass]: http://sass-lang.com/
+[Sinon.JS]: http://sinonjs.org/
+[Webpack]: http://webpack.github.io/

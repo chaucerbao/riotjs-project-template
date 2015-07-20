@@ -5,9 +5,9 @@
   "main": "./public/index.html",
   "scripts": {
     "develop": "mkdir -p ./public && cp ./src/index.html ./public/ && node_modules/.bin/webpack-dev-server --hot -d",
-    "build": "mkdir -p ./public && cp ./src/index.html ./public/ && node_modules/.bin/webpack -p",
+    "build": "mkdir -p ./public && cp ./src/index.html ./public/ && node_modules/.bin/webpack -p --optimize-dedupe",
     "clean": "rm -rf ./public",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/karma start"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,12 @@
     "babel-loader": "*",
     "css-loader": "*",
     "extract-text-webpack-plugin": "*",
+    "karma": "*",
+    "karma-chai": "*",
+    "karma-chrome-launcher": "*",
+    "karma-mocha": "*",
+    "karma-sinon": "*",
+    "karma-webpack": "*",
     "normalize.css": "*",
     "postcss-loader": "*",
     "riotcontrol": "*",
