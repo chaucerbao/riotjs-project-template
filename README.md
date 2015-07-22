@@ -26,7 +26,7 @@ Compiles the source with source maps, watches for changes, and serves the site a
 ```sh
 $ npm run build
 ```
-Compiles the source and minifies the output for production use.
+Compiles the source, then minifies and compresses the output for production use.
 
 ### Clean
 ```sh
