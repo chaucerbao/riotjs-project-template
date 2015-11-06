@@ -12,32 +12,48 @@ describe("Resource store", () => {
 
   // Singleton
   it("is a singleton", () => {
-    store.someVariable = 8675309;
+    let symbol = store.someVariable = Symbol();
 
     let anotherStore = new Store();
 
-    expect(anotherStore.someVariable).to.equal(8675309);
+    expect(anotherStore.someVariable).to.equal(symbol);
 
     delete store.someVariable;
   });
 
   // Listen to events from the dispatcher
-  it("responds to the `resource:load` event", (done) => {
-    sinon.spy(store, "trigger");
+  it("responds to the `resource:load-items` event", (done) => {
+    let spy = sinon.spy(store, "trigger");
 
-    dispatcher.trigger("resource:load");
+    dispatcher.trigger("resource:load-items");
 
     setTimeout(() => {
-      expect(store.isLoaded).to.be.true;
-      expect(store.trigger.withArgs("resource:loaded", sinon.match({
-        items: [{
-          name: "Resource A"
-        }, {
-          name: "Resource B"
-        }, {
-          name: "Resource C"
-        }]
-      })).calledOnce).to.be.true;
+      expect(spy.withArgs("resource:items-loaded", [{
+        id: 1,
+        name: "Resource A"
+      }, {
+        id: 2,
+        name: "Resource B"
+      }, {
+        id: 3,
+        name: "Resource C"
+      }]).calledOnce).to.be.true;
+
+      store.trigger.restore();
+      done();
+    }, 300);
+  });
+
+  it("responds to the `resource:load-item` event", (done) => {
+    let spy = sinon.spy(store, "trigger");
+
+    dispatcher.trigger("resource:load-item", 2);
+
+    setTimeout(() => {
+      expect(spy.withArgs("resource:item-loaded", {
+        id: 2,
+        name: "Resource B"
+      }).calledOnce).to.be.true;
 
       store.trigger.restore();
       done();
