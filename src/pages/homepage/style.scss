@@ -1,6 +1,10 @@
 @import "settings";
 
 homepage {
+  border: solid 1px $blue;
+  display: inline-block;
+  padding: 1rem;
+
   > h1 {
     color: $blue;
   }
