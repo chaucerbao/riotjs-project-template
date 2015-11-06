@@ -7,7 +7,6 @@ describe("Resource store", () => {
 
   before(() => {
     store = new Store();
-    dispatcher.addStore(store);
   });
 
   // Singleton
@@ -21,11 +20,11 @@ describe("Resource store", () => {
     delete store.someVariable;
   });
 
-  // Listen to events from the dispatcher
+  // Event callbacks
   it("responds to the `resource:load-items` event", (done) => {
     let spy = sinon.spy(store, "trigger");
 
-    dispatcher.trigger("resource:load-items");
+    store.trigger("resource:load-items");
 
     setTimeout(() => {
       expect(spy.withArgs("resource:items-loaded", [{
@@ -47,7 +46,7 @@ describe("Resource store", () => {
   it("responds to the `resource:load-item` event", (done) => {
     let spy = sinon.spy(store, "trigger");
 
-    dispatcher.trigger("resource:load-item", 2);
+    store.trigger("resource:load-item", 2);
 
     setTimeout(() => {
       expect(spy.withArgs("resource:item-loaded", {

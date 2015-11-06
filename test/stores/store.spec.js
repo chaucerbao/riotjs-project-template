@@ -7,7 +7,6 @@ describe("Store store", () => {
 
   before(() => {
     store = new Store();
-    dispatcher.addStore(store);
   });
 
   beforeEach(() => {
