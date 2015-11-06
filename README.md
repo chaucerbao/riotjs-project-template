@@ -105,7 +105,7 @@ test/
 
 `modules/` contains reusable DOM elements, like sidebars or chat boxes.
 
-`pages/` contains the application's pages, like the homepage or an "about us" page.
+`pages/` contains the application's pages, like the homepage.
 
 `stores/` contains Flux stores that respond to events from the dispatcher.
 

@@ -1,0 +1,11 @@
+@import "settings";
+
+resource {
+  border: solid 1px $orange;
+  display: inline-block;
+  padding: 1rem;
+
+  > h1 {
+    color: $orange;
+  }
+}

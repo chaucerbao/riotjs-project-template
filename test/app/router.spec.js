@@ -18,35 +18,35 @@ describe("Router", () => {
 
   // Singleton
   it("is a singleton", () => {
-    router.someVariable = 8675309;
+    let symbol = router.someVariable = Symbol();
 
     let anotherRouter = new Router();
 
-    expect(anotherRouter.someVariable).to.equal(8675309);
+    expect(anotherRouter.someVariable).to.equal(symbol);
 
     delete router.someVariable;
   });
 
   // Updating the route mounts its respective page
   it("mounts the homepage", (done) => {
-    expect(document.body.querySelector("homepage")).to.be.null;
+    expect(body.querySelector("homepage")).to.be.null;
 
     riot.route("homepage");
 
     setTimeout(() => {
-      expect(document.body.querySelector("homepage")).not.to.be.null;
+      expect(body.querySelector("homepage")).not.to.be.null;
       done();
-    }, 300);
+    }, 100);
   });
 
-  it("mounts the about page", (done) => {
-    expect(document.body.querySelector("about")).to.be.null;
+  it("mounts the resource page", (done) => {
+    expect(body.querySelector("resource")).to.be.null;
 
-    riot.route("about");
+    riot.route("resource/2");
 
     setTimeout(() => {
-      expect(document.body.querySelector("about")).not.to.be.null;
+      expect(body.querySelector("resource")).not.to.be.null;
       done();
-    }, 300);
+    }, 100);
   });
 });
