@@ -35,7 +35,7 @@ describe("Resource tag", () => {
   });
 
   // Event callbacks
-  describe('onResourceLoaded', () => {
+  describe("onResourceLoaded", () => {
     it("renders the `resource` property", () => {
       tag.resource = {};
       tag.update();

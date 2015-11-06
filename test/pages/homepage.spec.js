@@ -35,7 +35,7 @@ describe("Homepage tag", () => {
   });
 
   // Event callbacks
-  describe('onResourcesLoaded', () => {
+  describe("onResourcesLoaded", () => {
     it("renders the `resources` property", () => {
       tag.resources = [];
       tag.update();
