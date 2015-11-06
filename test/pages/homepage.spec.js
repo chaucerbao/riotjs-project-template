@@ -23,52 +23,35 @@ describe("Homepage tag", () => {
 
   // Renders the properties
   it("renders the `result` property", () => {
-    tag.result = "Lorem ipsum";
+    tag.result = "";
     tag.update();
 
-    expect(element.querySelector("p").innerHTML).to.contain("Lorem ipsum");
+    expect(element.querySelector("p").innerHTML).to.not.contain("Lorem ipsum dolor sit amet");
 
-    tag.result = "Dolor sit amet";
+    tag.result = "Lorem ipsum dolor sit amet";
     tag.update();
 
-    expect(element.querySelector("p").innerHTML).to.contain("Dolor sit amet");
+    expect(element.querySelector("p").innerHTML).to.contain("Lorem ipsum dolor sit amet");
   });
 
-  it("renders the `resources` property", () => {
-    tag.resources = [];
-    tag.update();
-
-    expect(element.querySelectorAll("li")).to.have.length(0);
-
-    tag.resources = [{
-      name: "One"
-    }, {
-      name: "Two"
-    }];
-    tag.update();
-
-    expect(element.querySelectorAll("li")).to.have.length(2);
-  });
-
-  // Dispatcher's event handlers
-  describe('onResourceLoaded', () => {
-    it("sets the `resources` property", () => {
+  // Event callbacks
+  describe('onResourcesLoaded', () => {
+    it("renders the `resources` property", () => {
       tag.resources = [];
       tag.update();
 
-      expect(tag.resources).to.have.length(0);
+      expect(element.querySelectorAll("li")).to.have.length(0);
 
-      tag.onResourceLoaded({
-        items: [{
-          name: "One"
-        }, {
-          name: "Two"
-        }, {
-          name: "Three"
-        }]
-      });
+      tag.onResourcesLoaded([{
+        id: 1,
+        name: "Resource A"
+      }, {
+        id: 2,
+        name: "Resource B"
+      }]);
 
-      expect(tag.resources).to.have.length(3);
+      expect(tag.resources).to.have.length(2);
+      expect(element.querySelectorAll("li")).to.have.length(2);
     });
   });
 });
