@@ -1,5 +1,9 @@
+import Store from "./store";
+
 // Singleton instance
 let instance = null;
+
+// Fake database
 let database = [{
   id: 1,
   name: "Resource A"
@@ -11,13 +15,13 @@ let database = [{
   name: "Resource C"
 }];
 
-class Resource {
+class Resource extends Store {
   constructor() {
+    super();
+
     if (instance) {
       return instance;
     }
-
-    riot.observable(this);
 
     this.state = {
       items: [],
@@ -26,7 +30,7 @@ class Resource {
 
     this.bindEvents();
 
-    return instance = this;
+    return (instance = this);
   }
 
   bindEvents() {
