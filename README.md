@@ -122,7 +122,6 @@ Testing:
 
 * [Mocha]
 * [Chai]
-* [Sinon.JS]
 
 Misc:
 
@@ -137,5 +136,4 @@ Misc:
 [RiotControl]: https://github.com/jimsparkman/RiotControl
 [RiotJS]: https://muut.com/riotjs/
 [Sass]: http://sass-lang.com/
-[Sinon.JS]: http://sinonjs.org/
 [Webpack]: http://webpack.github.io/

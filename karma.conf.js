@@ -17,7 +17,7 @@ for (var i = 0, len = webpackConfig.module.loaders.length; i < len; i++) {
 
 module.exports = function(config) {
   config.set({
-    frameworks: ["mocha", "chai", "sinon"],
+    frameworks: ["mocha", "chai"],
     files: [
       "test/**/*.spec.js"
     ],
@@ -27,7 +27,6 @@ module.exports = function(config) {
     plugins: [
       "karma-mocha",
       "karma-chai",
-      "karma-sinon",
       "karma-chrome-launcher",
       "karma-webpack"
     ],

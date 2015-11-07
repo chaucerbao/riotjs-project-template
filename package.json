@@ -31,7 +31,6 @@
     "karma-chai": "*",
     "karma-chrome-launcher": "*",
     "karma-mocha": "*",
-    "karma-sinon": "*",
     "karma-webpack": "*",
     "mocha": "*",
     "node-sass": "*",
@@ -41,7 +40,6 @@
     "riotcontrol": "*",
     "riotjs-loader": "*",
     "sass-loader": "*",
-    "sinon": "*",
     "style-loader": "*",
     "webpack": "*",
     "webpack-dev-server": "*"
