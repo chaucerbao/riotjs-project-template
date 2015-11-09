@@ -7,7 +7,7 @@ import Library from "lib/library";
   <p>Library function: {result}</p>
 
   <ul if={resources}>
-    <li each={resources}><a href="#resource/{id}">{name}</a></li>
+    <li each={resources}><a href="/resource/{id}">{name}</a></li>
   </ul>
 
   let self = this;

@@ -7,8 +7,8 @@ describe("Router", () => {
 
   before(() => {
     body = document.createElement("main");
-
     document.body.appendChild(body);
+
     router = new Router(body);
   });
 
@@ -31,7 +31,7 @@ describe("Router", () => {
   it("mounts the homepage", (done) => {
     expect(body.querySelector("homepage")).to.be.null;
 
-    riot.route("homepage");
+    riot.route("@");
 
     setTimeout(() => {
       expect(body.querySelector("homepage")).not.to.be.null;

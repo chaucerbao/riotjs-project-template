@@ -9,22 +9,25 @@ class Router {
 
     this.body = body;
     this.page = null;
+    this.routes();
 
-    riot.route(this.routeTo.bind(this));
-    riot.route.exec(this.routeTo.bind(this));
+    riot.route.base("/");
+    riot.route.start();
+    riot.route.exec();
 
     return instance = this;
   }
 
   // Routing logic
-  routeTo(page, ...params) {
-    if (page === "resource") {
-      this.mount(page, {
-        id: params[0]
-      });
-    } else {
+  routes() {
+    riot.route("@", () => {
       this.mount("homepage");
-    }
+    });
+    riot.route("resource/*", (id) => {
+      this.mount("resource", {
+        id: id
+      });
+    });
   }
 
   mount(page, params = {}) {

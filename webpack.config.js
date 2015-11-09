@@ -14,7 +14,7 @@ module.exports = {
   },
   output: {
     path: path.join(dest, "assets"),
-    publicPath: "assets/",
+    publicPath: "/assets/",
     filename: "[name].js",
     chunkFilename: "[chunkhash].js"
   },
@@ -53,6 +53,7 @@ module.exports = {
   },
   devServer: {
     contentBase: dest,
+    historyApiFallback: true,
     noInfo: true,
     hot: true,
     inline: true
