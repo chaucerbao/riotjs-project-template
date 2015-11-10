@@ -14,47 +14,64 @@ describe("Store store", () => {
   });
 
   // Caching functions
-  it("keeps track of expiration times", () => {
-    expect(store._cache).to.be.empty;
+  describe("cache(key, duration, callback)", () => {
+    it("executes the `callback` and caches the result", (done) => {
+      let state = 0;
 
-    store.cache("key-1", 10);
-    store.cache("key-2", -10);
+      store.cache("key-1", 1, () => {
+        state = 1;
+      });
 
-    expect(store._cache).to.have.all.keys(["key-1", "key-2"]);
-    expect(store._cache["key-1"]).to.be.greaterThan(Date.now());
-    expect(store._cache["key-2"]).to.be.lessThan(Date.now());
+      setTimeout(() => {
+        store.cache("key-1", 1, () => {
+          state = 2;
+        });
+
+        expect(state).to.equal(1);
+        done();
+      }, 100);
+    });
+
+    it("expires the cached result after the `duration` in seconds", (done) => {
+      let state = 0;
+
+      store.cache("key-1", .05, () => {
+        state = 1;
+      });
+
+      setTimeout(() => {
+        store.cache("key-1", .05, () => {
+          state = 2;
+        });
+
+        expect(state).to.equal(2);
+        done();
+      }, 100);
+    });
   });
 
-  it("clears all expiration times", () => {
-    store._cache = {
-      "key-1": 1,
-      "key-2": 2
-    };
+  describe("clearCache(...keys)", () => {
+    it("clears all cached results", () => {
+      store.cache("key-1", 1, () => {});
+      store.cache("key-2", 1, () => {});
 
-    store.clearCache();
+      expect(store._cache).to.have.all.keys(["key-1", "key-2"]);
 
-    expect(store._cache).to.be.empty;
-  });
+      store.clearCache();
 
-  it("clears specific expiration times", () => {
-    store._cache = {
-      "key-1": 1,
-      "key-2": 2,
-      "key-3": 3
-    };
+      expect(store._cache).to.be.empty;
+    });
 
-    store.clearCache("key-1", "key-3");
+    it("clears specific cached results", () => {
+      store.cache("key-1", 1, () => {});
+      store.cache("key-2", 1, () => {});
+      store.cache("key-3", 1, () => {});
 
-    expect(store._cache).to.have.all.keys(["key-2"]);
-  });
+      expect(store._cache).to.have.all.keys(["key-1", "key-2", "key-3"]);
 
-  it("checks if a specific expiration time has passed", () => {
-    store._cache = {
-      "key-1": 8640000000000000,
-      "key-2": 0
-    };
+      store.clearCache("key-1", "key-3");
 
-    expect(store.isCached("key-1")).to.be.true;
-    expect(store.isCached("key-2")).to.be.false;
+      expect(store._cache).to.have.all.keys(["key-2"]);
+    });
   });
 });

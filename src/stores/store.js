@@ -5,10 +5,17 @@ class Store {
     this._cache = {};
   }
 
-  cache(key, duration) {
-    this._cache[key] = Date.now() + duration * 1000;
+  cache(key, duration, callback) {
+    let now = Date.now();
 
-    return this._cache[key];
+    if (!this._cache[key] || now > this._cache[key].expires) {
+      this._cache[key] = {
+        result: callback(),
+        expires: now + duration * 1000
+      };
+    }
+
+    return this._cache[key].result;
   }
 
   clearCache(...keys) {
@@ -21,10 +28,6 @@ class Store {
     } else {
       this._cache = {};
     }
-  }
-
-  isCached(key) {
-    return (typeof this._cache[key] !== "undefined" && this._cache[key] > Date.now());
   }
 }
 
