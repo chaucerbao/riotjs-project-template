@@ -39,27 +39,25 @@ class Resource extends Store {
         return new Promise((resolve, reject) => {
           // Fake AJAX call with latency
           setTimeout(() => {
-            this.state.items = database;
-
-            resolve();
+            resolve(database);
           }, 250);
         });
-      }).then(() => {
+      }).then((items) => {
+        this.state.items = items;
         this.trigger("resource:items-loaded", this.state.items);
       });
     });
 
     this.on("resource:load-item", (id) => {
-      this.cache("resource:load-item", 5, () => {
+      this.cache(`resource:load-item-${id}`, 5, () => {
         return new Promise((resolve, reject) => {
           // Fake AJAX call with latency
           setTimeout(() => {
-            this.state.item = database[id - 1];
-
-            resolve();
+            resolve(database[id - 1]);
           }, 250);
         });
-      }).then(() => {
+      }).then((item) => {
+        this.state.item = item;
         this.trigger("resource:item-loaded", this.state.item);
       });
 
