@@ -18,7 +18,7 @@ $ npm install
 
 ### Development
 ```sh
-$ npm run develop
+$ npm start
 ```
 Compiles the source with source maps, watches for changes, and serves the site at [http://localhost:8080/](http://localhost:8080/).
 
