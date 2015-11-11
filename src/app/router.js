@@ -9,41 +9,43 @@ class Router {
 
     this.body = body;
     this.page = null;
+    this.routes();
 
-    riot.route(this.routeTo.bind(this));
-    riot.route.exec(this.routeTo.bind(this));
+    riot.route.base("/");
+    riot.route.start();
+    riot.route.exec();
 
     return instance = this;
   }
 
-  routeTo(...params) {
-    let page = params[0];
-
-    // Routing logic
-    if (page === "about") {
-      require.ensure(["pages/about"], () => {
-        require("pages/about");
-        this.mount(page);
+  // Routing logic
+  routes() {
+    riot.route("@", () => {
+      this.mount("homepage");
+    });
+    riot.route("resource/*", (id) => {
+      this.mount("resource", {
+        id: id
       });
-    } else {
-      require.ensure(["pages/homepage"], () => {
-        require("pages/homepage");
-        this.mount("homepage");
-      });
-    }
+    });
   }
 
-  mount(page) {
-    // Unmount the active page, if mounted
-    if (this.page) {
-      this.page.unmount();
-    }
+  mount(page, params = {}) {
+    require.ensure([], () => {
+      // Load the page
+      require(`pages/${page}/index.tag`);
 
-    // Create a tag in the DOM for the new page
-    this.body.appendChild(document.createElement(page));
+      // Unmount the active page, if mounted
+      if (this.page) {
+        this.page.unmount();
+      }
 
-    // Mount the new tag
-    this.page = riot.mount(page)[0];
+      // Create a tag in the DOM for the new page
+      this.body.appendChild(document.createElement(page));
+
+      // Mount the new tag
+      this.page = riot.mount(page, params)[0];
+    });
   }
 }
 

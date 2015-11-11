@@ -8,10 +8,10 @@ import Library from "lib/library";
   <p>Library function: {result}</p>
 
   <ul if={resources}>
-    <li each={resources}>{name}</li>
+    <li each={resources}><a href="/resource/{id}">{name}</a></li>
   </ul>
 
-  <module></module>
+  <module />
 
   let self = this;
 
@@ -21,20 +21,17 @@ import Library from "lib/library";
 
   // This tag's event handlers
   self.on("mount", () => {
-    dispatcher.on("resource:loaded", self.onResourceLoaded);
-    dispatcher.trigger("resource:load");
-    console.log("Homepage mounted");
+    dispatcher.on("resource:items-loaded", self.onResourcesLoaded);
+    dispatcher.trigger("resource:load-items");
   });
 
   self.on("unmount", () => {
-    dispatcher.off("resource:loaded", self.onResourceLoaded);
-    console.log("Homepage unmounted");
+    dispatcher.off("resource:items-loaded", self.onResourcesLoaded);
   });
 
-  // The dispatcher's event handlers for this tag
-  self.onResourceLoaded = (resource) => {
-    self.resources = resource.items;
+  // The dispatcher's event callbacks
+  self.onResourcesLoaded = (resources) => {
+    self.resources = resources;
     self.update();
-    console.log("Homepage resources rendered");
   };
 </homepage>

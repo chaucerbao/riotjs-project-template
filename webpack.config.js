@@ -14,7 +14,7 @@ module.exports = {
   },
   output: {
     path: path.join(dest, "assets"),
-    publicPath: "assets/",
+    publicPath: "/assets/",
     filename: "[name].js",
     chunkFilename: "[chunkhash].js"
   },
@@ -26,7 +26,10 @@ module.exports = {
     loaders: [{
       test: /\.js|\.tag$/,
       loader: "babel",
-      exclude: /node_modules/
+      exclude: /node_modules/,
+      query: {
+        presets: ["es2015"]
+      }
     }, {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract("style", "css?sourceMap&minimize!postcss!sass?sourceMap&includePaths[]=" + path.resolve(__dirname, "./src/app/style/"))
@@ -35,7 +38,7 @@ module.exports = {
       loader: ExtractTextPlugin.extract("style", "css?sourceMap&minimize!postcss")
     }]
   },
-  postcss: [require('autoprefixer')],
+  postcss: [require("autoprefixer")],
   plugins: [
     new webpack.ProvidePlugin({
       riot: "riot",
@@ -50,6 +53,7 @@ module.exports = {
   },
   devServer: {
     contentBase: dest,
+    historyApiFallback: true,
     noInfo: true,
     hot: true,
     inline: true

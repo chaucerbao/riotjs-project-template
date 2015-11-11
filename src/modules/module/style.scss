@@ -1,6 +1,10 @@
 @import "settings";
 
 module {
+  border: solid 1px $green;
+  display: inline-block;
+  padding: 1rem;
+
   > h1 {
     color: $green;
   }

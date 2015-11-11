@@ -7,40 +7,37 @@ describe("Resource store", () => {
 
   before(() => {
     store = new Store();
-    dispatcher.addStore(store);
   });
 
   // Singleton
   it("is a singleton", () => {
-    store.someVariable = 8675309;
+    let symbol = store.someVariable = Symbol();
 
     let anotherStore = new Store();
 
-    expect(anotherStore.someVariable).to.equal(8675309);
+    expect(anotherStore.someVariable).to.equal(symbol);
 
     delete store.someVariable;
   });
 
-  // Listen to events from the dispatcher
-  it("responds to the `resource:load` event", (done) => {
-    sinon.spy(store, "trigger");
-
-    dispatcher.trigger("resource:load");
-
-    setTimeout(() => {
-      expect(store.isLoaded).to.be.true;
-      expect(store.trigger.withArgs("resource:loaded", sinon.match({
-        items: [{
-          name: "Resource A"
-        }, {
-          name: "Resource B"
-        }, {
-          name: "Resource C"
-        }]
-      })).calledOnce).to.be.true;
-
-      store.trigger.restore();
+  // Event callbacks
+  it("responds to the `resource:load-items` event", (done) => {
+    // Listener
+    store.on("resource:items-loaded", (resources) => {
+      expect(resources).to.have.length(3);
       done();
-    }, 300);
+    });
+
+    store.trigger("resource:load-items");
+  });
+
+  it("responds to the `resource:load-item` event", (done) => {
+    // Listener
+    store.on("resource:item-loaded", (resource) => {
+      expect(resource).to.have.all.keys(["id", "name"]);
+      done();
+    });
+
+    store.trigger("resource:load-item", 2);
   });
 });

@@ -1,11 +1,11 @@
 @import "settings";
 
-homepage {
-  border: solid 1px $blue;
+resource {
+  border: solid 1px $orange;
   display: inline-block;
   padding: 1rem;
 
   > h1 {
-    color: $blue;
+    color: $orange;
   }
 }

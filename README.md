@@ -18,7 +18,7 @@ $ npm install
 
 ### Development
 ```sh
-$ npm run develop
+$ npm start
 ```
 Compiles the source with source maps, watches for changes, and serves the site at [http://localhost:8080/](http://localhost:8080/).
 
@@ -26,7 +26,7 @@ Compiles the source with source maps, watches for changes, and serves the site a
 ```sh
 $ npm run build
 ```
-Compiles the source and minifies the output for production use.
+Compiles the source, then minifies and compresses the output for production use.
 
 ### Clean
 ```sh
@@ -105,7 +105,7 @@ test/
 
 `modules/` contains reusable DOM elements, like sidebars or chat boxes.
 
-`pages/` contains the application's pages, like the homepage or an "about us" page.
+`pages/` contains the application's pages, like the homepage.
 
 `stores/` contains Flux stores that respond to events from the dispatcher.
 
@@ -122,7 +122,6 @@ Testing:
 
 * [Mocha]
 * [Chai]
-* [Sinon.JS]
 
 Misc:
 
@@ -137,5 +136,4 @@ Misc:
 [RiotControl]: https://github.com/jimsparkman/RiotControl
 [RiotJS]: https://muut.com/riotjs/
 [Sass]: http://sass-lang.com/
-[Sinon.JS]: http://sinonjs.org/
 [Webpack]: http://webpack.github.io/

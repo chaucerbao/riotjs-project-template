@@ -1,15 +1,15 @@
-import "pages/homepage";
+import "pages/resource";
 
 let expect = chai.expect;
 
-describe("Homepage tag", () => {
+describe("Resource tag", () => {
   let tag, element;
 
   before(() => {
-    element = document.createElement("homepage");
+    element = document.createElement("resource");
     document.body.appendChild(element);
 
-    tag = riot.mount("homepage")[0];
+    tag = riot.mount("resource")[0];
   });
 
   after(() => {
@@ -35,23 +35,19 @@ describe("Homepage tag", () => {
   });
 
   // Event callbacks
-  describe("onResourcesLoaded", () => {
-    it("renders the `resources` property", () => {
-      tag.resources = [];
+  describe("onResourceLoaded", () => {
+    it("renders the `resource` property", () => {
+      tag.resource = {};
       tag.update();
 
-      expect(element.querySelectorAll("li")).to.have.length(0);
+      expect(element.querySelector("h1").innerHTML).to.equal(" (#)");
 
-      tag.onResourcesLoaded([{
-        id: 1,
-        name: "Resource A"
-      }, {
+      tag.onResourceLoaded({
         id: 2,
         name: "Resource B"
-      }]);
+      });
 
-      expect(tag.resources).to.have.length(2);
-      expect(element.querySelectorAll("li")).to.have.length(2);
+      expect(element.querySelector("h1").innerHTML).to.equal("Resource B (#2)");
     });
   });
 });
