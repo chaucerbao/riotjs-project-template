@@ -25,7 +25,7 @@ class Router {
     });
     riot.route("resource/*", (id) => {
       this.mount("resource", {
-        id: id
+        id
       });
     });
   }
