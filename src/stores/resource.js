@@ -34,17 +34,20 @@ class Resource extends Store {
   }
 
   bindEvents() {
-    this.on("resource:load-items", () => {
+    this.one("resource:load-items", function loadItems() {
       this.cache("resource:load-items", 5, () => {
         return new Promise((resolve, reject) => {
           // Fake AJAX call with latency
           setTimeout(() => {
             resolve(database);
-          }, 250);
+          }, 200);
         });
       }).then((items) => {
         this.state.items = items;
         this.trigger("resource:items-loaded", this.state.items);
+        this.one("resource:load-items", loadItems);
+      }, () => {
+        this.one("resource:load-items", loadItems);
       });
     });
 
@@ -54,7 +57,7 @@ class Resource extends Store {
           // Fake AJAX call with latency
           setTimeout(() => {
             resolve(database[id - 1]);
-          }, 250);
+          }, 200);
         });
       }).then((item) => {
         this.state.item = item;
