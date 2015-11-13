@@ -12,8 +12,7 @@ class Router {
     this.routes();
 
     riot.route.base("/");
-    riot.route.start();
-    riot.route.exec();
+    riot.route.start(true);
 
     return instance = this;
   }
