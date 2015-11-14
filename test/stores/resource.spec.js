@@ -53,12 +53,7 @@ describe("Resource store", () => {
         store.trigger("resource:load-items");
       }, 150);
 
-      // First trigger is complete
-      setTimeout(() => {
-        expect(counter).to.equal(1);
-      }, 250);
-
-      // Second trigger should not have registered
+      // First & second trigger are complete
       setTimeout(() => {
         expect(counter).to.equal(1);
         done();
