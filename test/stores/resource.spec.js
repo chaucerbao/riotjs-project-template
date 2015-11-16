@@ -9,7 +9,8 @@ describe("Resource store", () => {
     store = new Store();
   });
 
-  beforeEach(() => {
+  afterEach(() => {
+    store.off("resource:items-loaded resource:item-loaded");
     store.clearCache();
   });
 
