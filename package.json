@@ -1,0 +1,42 @@
+{
+  "name": "riotjs-project-template",
+  "version": "0.0.1",
+  "description": "A project template for building a web application with RiotJS",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "npm run init && node_modules/.bin/webpack-dev-server -d --hot",
+    "build": "npm run init && node_modules/.bin/webpack -p --optimize-minimize --optimize-occurence-order --optimize-dedupe && gzip -k9 ./public/assets/*",
+    "clean": "rm -rf ./public",
+    "init": "npm run clean && mkdir -p ./public && cp ./src/index.html ./public/",
+    "test": "node_modules/.bin/mocha --compilers js:babel-register --recursive",
+    "test:watch": "npm test -- --watch"
+  },
+  "author": "Alvin Chan <no@email.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "*",
+    "babel-loader": "*",
+    "babel-preset-es2015": "*",
+    "babel-register": "*",
+    "chai": "*",
+    "css-loader": "*",
+    "extract-text-webpack-plugin": "*",
+    "mocha": "*",
+    "nock": "*",
+    "postcss-import": "*",
+    "postcss-loader": "*",
+    "postcss-mixins": "*",
+    "postcss-nested": "*",
+    "postcss-simple-vars": "*",
+    "riotjs-loader": "*",
+    "sinon": "*",
+    "style-loader": "*",
+    "webpack": "*",
+    "webpack-dev-server": "*"
+  },
+  "dependencies": {
+    "isomorphic-fetch": "*",
+    "normalize.css": "*",
+    "riot": "*"
+  }
+}
