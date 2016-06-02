@@ -11,6 +11,10 @@
     "test": "node_modules/.bin/mocha --compilers js:babel-register --recursive",
     "test:watch": "npm test -- --watch"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaucerbao/riotjs-project-template.git"
+  },
   "author": "Alvin Chan <no@email.com>",
   "license": "ISC",
   "devDependencies": {
