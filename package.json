@@ -4,7 +4,7 @@
   "description": "A project template for building a web application with RiotJS",
   "main": "./src/index.js",
   "scripts": {
-    "start": "npm run init && node_modules/.bin/webpack-dev-server -d --hot",
+    "start": "npm run init && node_modules/.bin/webpack-dev-server -d --inline --hot",
     "build": "npm run init && node_modules/.bin/webpack -p --optimize-minimize --optimize-occurence-order --optimize-dedupe && gzip -k9 ./public/assets/*",
     "clean": "rm -rf ./public",
     "init": "npm run clean && mkdir -p ./public && cp ./src/index.html ./public/",
