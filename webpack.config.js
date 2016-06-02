@@ -8,8 +8,10 @@ var src = path.join(__dirname, "src"),
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
+  context: src,
+
   entry: {
-    app: path.join(src, "index.js")
+    app: "index.js"
   },
 
   output: {
