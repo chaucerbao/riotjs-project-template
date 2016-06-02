@@ -16,7 +16,7 @@ import "./style";
 
   <module />
 
-  <script>
+  <script type="javascript">
     const { branch } = opts.store;
 
     const self = this;

@@ -22,6 +22,9 @@ module.exports = {
     preLoaders: [{
       loader: "riotjs",
       test: /\.tag$/
+    }, {
+      loader: "eslint",
+      test: /\.tag$|\.js$/
     }],
 
     loaders: [{
