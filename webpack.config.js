@@ -2,7 +2,8 @@ var path = require("path"),
   webpack = require("webpack");
 
 var src = path.join(__dirname, "src"),
-  dest = path.join(__dirname, "public");
+  dest = path.join(__dirname, "public"),
+  test = path.join(__dirname, "test");
 
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
@@ -21,15 +22,18 @@ module.exports = {
   module: {
     preLoaders: [{
       loader: "riotjs",
-      test: /\.tag$/
+      test: /\.tag$/,
+      include: src
     }, {
       loader: "eslint",
-      test: /\.tag$|\.js$/
+      test: /\.tag$|\.js$/,
+      include: [src, test]
     }],
 
     loaders: [{
       loader: "babel",
-      test: /\.tag$|\.js$/
+      test: /\.tag$|\.js$/,
+      include: [src, test]
     }, {
       loader: ExtractTextPlugin.extract("style", "css?sourceMap&minimize!postcss"),
       test: /\.css$/
