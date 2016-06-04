@@ -1,7 +1,7 @@
 // Dependencies
 import { expect } from "chai";
-import nock from "nock";
 import sinon from "sinon";
+import nock from "nock";
 
 // Test item
 import Branch from "../../src/store/branch";

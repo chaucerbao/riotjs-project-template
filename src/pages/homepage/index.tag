@@ -20,7 +20,7 @@ import "./style";
     const { branch } = opts.store;
 
     const self = this;
-    const perPage = 10;
+    const perPage = Number(opts.perPage) || 10;
     const page = Number(opts.page) || 1;
 
     self.items = [];
@@ -32,7 +32,7 @@ import "./style";
 
       self.items = items.slice((page - 1) * perPage, page * perPage);
       self.previousPage = Math.max(page - 1, 1);
-      self.nextPage = Math.min(page + 1, items.length / perPage);
+      self.nextPage = Math.min(page + 1, Math.ceil(items.length / perPage));
 
       self.update();
     }
