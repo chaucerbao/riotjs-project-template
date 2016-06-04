@@ -4,15 +4,15 @@ import { jsdom } from "jsdom";
 import { expect } from "chai";
 
 // Test item
-import "app";
+import "application";
 
-describe("App tag", () => {
+describe("Application tag", () => {
   before(() => {
-    global.document = jsdom("<app />");
+    global.document = jsdom("<application />");
   });
 
   it("mounts", () => {
-    const tags = mount("app");
+    const tags = mount("application");
 
     expect(tags).to.have.lengthOf(1);
     expect(tags[0].isMounted).to.be.true;

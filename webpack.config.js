@@ -11,7 +11,7 @@ module.exports = {
   context: src,
 
   entry: {
-    app: "index.js"
+    application: "index.js"
   },
 
   output: {
@@ -46,7 +46,7 @@ module.exports = {
     return [
       require("postcss-import")({
         addDependencyTo: webpack,
-        path: [path.join(src, "app", "style")]
+        path: [path.join(src, "application", "style")]
       }),
       require("postcss-mixins"),
       require("postcss-simple-vars"),

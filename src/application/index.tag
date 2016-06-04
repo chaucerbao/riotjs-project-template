@@ -2,7 +2,7 @@
 import "normalize.css/normalize";
 import "./style";
 
-<app>
+<application>
   <header class="site__header">
     <h1>Site Header</h1>
     <nav>
@@ -19,4 +19,4 @@ import "./style";
   <footer class="site__footer">
     Site Footer
   </footer>
-</app>
+</application>
