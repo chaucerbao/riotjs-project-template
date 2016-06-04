@@ -6,7 +6,7 @@ import { expect } from "chai";
 // Test item
 import "pages/not-found-404";
 
-describe("Not Found 404 tag", () => {
+describe("<not-found-404 />", () => {
   before(() => {
     global.document = jsdom("<not-found-404 />");
   });

@@ -6,7 +6,7 @@ import { expect } from "chai";
 // Test item
 import "application";
 
-describe("Application tag", () => {
+describe("<application />", () => {
   before(() => {
     global.document = jsdom("<application />");
   });

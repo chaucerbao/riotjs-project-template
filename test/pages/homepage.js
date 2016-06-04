@@ -13,7 +13,7 @@ const mockStore = {
   })
 };
 
-describe("Homepage tag", () => {
+describe("<homepage />", () => {
   let store;
 
   before(() => {

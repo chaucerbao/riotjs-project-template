@@ -13,7 +13,7 @@ const mockStore = {
   })
 };
 
-describe("Resource tag", () => {
+describe("<resource />", () => {
   let store;
 
   before(() => {
