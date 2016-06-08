@@ -8,7 +8,7 @@
     "build": "npm run init && node_modules/.bin/webpack -p --optimize-minimize --optimize-occurence-order --optimize-dedupe && gzip -k9 ./public/assets/*",
     "clean": "rm -rf ./public",
     "init": "npm run clean && mkdir -p ./public && cp ./src/index.html ./public/",
-    "test": "node_modules/.bin/mocha-webpack --webpack-config webpack.test.config.js --require ignore-styles --colors --recursive test",
+    "test": "node_modules/.bin/mocha-webpack --webpack-config ./test/webpack.config.js --require ignore-styles --colors --recursive test",
     "test:watch": "npm test -- --watch"
   },
   "repository": {
