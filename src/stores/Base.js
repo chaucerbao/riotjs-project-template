@@ -1,16 +1,12 @@
 // Dependencies
 import { observable } from 'riot';
 
-// Status codes
-const PENDING = 1;
-const LOADED = 2;
-
 // Store
 class BaseStore {
   constructor() {
     this._model = BaseModel;
     this._cache = {};
-    this._fetchStatus = {};
+    this._pendingRequests = [];
 
     return observable(this);
   }
@@ -25,24 +21,25 @@ class BaseStore {
   }
 
   // Fetch a URL and return the response, while handling duplicate requests
-  async _fetch(request, target) {
+  async _fetch(request) {
+    const pendingKey = btoa(JSON.stringify(request));
+    const pendingIndex = this._pendingRequests.indexOf(pendingKey);
+
     try {
       // Throw, if a request is currently pending
-      if (this._fetchStatus[target] === PENDING) {
-        throw Error(
-          `Request for '${this.constructor.name}.${target}' already pending`
-        );
+      if (pendingIndex > -1) {
+        throw Error(`Request in '${this.constructor.name}' already pending`);
       }
 
-      // Set status to `pending` during the fetch
-      this._fetchStatus[target] = PENDING;
+      // Set request to `pending` during the fetch
+      this._pendingRequests.push(pendingKey);
 
       // Fetch the request
       const response = await fetch(request);
       const responseBody = await response.json();
 
-      // Set status to `loaded`
-      this._fetchStatus[target] = LOADED;
+      // Remove the `pending` status
+      this._pendingRequests.splice(pendingIndex, 1);
 
       return responseBody;
     } catch (err) {

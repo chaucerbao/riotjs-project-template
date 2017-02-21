@@ -14,8 +14,7 @@ class ExampleStore extends BaseStore {
   async getList() {
     try {
       const items = await super._fetch(
-        'https://jsonplaceholder.typicode.com/users',
-        'list'
+        'https://jsonplaceholder.typicode.com/users'
       );
 
       this.list = items.map(item => super._load(item.id, item));
