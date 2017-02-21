@@ -1,6 +1,3 @@
-// Global dependencies
-import 'regenerator-runtime/runtime';
-
 // Styles
 import './styles/index.scss';
 
