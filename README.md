@@ -17,4 +17,9 @@ Start the development server.
 npm start
 ```
 
+Run tests against the source.
+```sh
+npm test
+```
+
 [RiotJS]: http://riotjs.com/
