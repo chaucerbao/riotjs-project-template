@@ -58,6 +58,11 @@ const config = {
         include: [src]
       }
     ]
+  },
+
+  resolve: {
+    extensions: ['.tag', '.js', '.json'],
+    modules: [src, 'node_modules']
   }
 };
 

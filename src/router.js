@@ -6,7 +6,7 @@ function router(mountPoint, stores) {
   // Load page asynchronously
   async function load(page, opts = {}) {
     try {
-      await import(`./pages/page-${page}/index.tag`);
+      await import(`pages/page-${page}/index.tag`);
 
       riot.mount(
         mountPoint,

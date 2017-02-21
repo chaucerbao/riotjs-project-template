@@ -2,7 +2,7 @@
 import riot from 'riot';
 
 // Modules
-import '../page-layout/index.tag';
+import 'pages/page-layout';
 
 <page-not-found>
   <page-layout>
