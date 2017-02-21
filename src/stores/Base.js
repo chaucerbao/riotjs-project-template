@@ -23,13 +23,15 @@ class BaseStore {
 
   // Fetch a URL and return the response, while handling duplicate requests
   async _fetch(request) {
-    const pendingKey = btoa(JSON.stringify(request));
+    const pendingKey = JSON.stringify(request);
     const pendingIndex = this._pendingRequests.indexOf(pendingKey);
 
     try {
       // Throw, if a request is currently pending
       if (pendingIndex > -1) {
-        throw Error(`Request in '${this.constructor.name}' already pending`);
+        throw new Error(
+          `Request in '${this.constructor.name}' already pending`
+        );
       }
 
       // Set request to `pending` during the fetch
