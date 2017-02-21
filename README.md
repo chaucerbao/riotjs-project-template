@@ -1,9 +1,11 @@
 # RiotJS Project Template
-A project template for building a web application with [RiotJS].
+A project template for building a single page web application with [RiotJS].
 
 **Features**
-* Small footprint. RiotJS is the only required dependency.
-* Low overhead. "Framework" is simple to understand.
+* Small footprint.
+* "Framework" is organized and easy to extend.
+* Pages are sent when accessed rather than bundled together.
+* Code quality ensured with tests and code-formatting tools.
 
 ## Getting Started
 Install the dependencies.
@@ -17,9 +19,9 @@ Start the development server.
 npm start
 ```
 
-Run tests against the source.
+Run tests against the source and, optionally, wait for changes.
 ```sh
-npm test
+npm test [-- --watch]
 ```
 
 [RiotJS]: http://riotjs.com/
