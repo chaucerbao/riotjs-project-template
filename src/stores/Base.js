@@ -1,9 +1,11 @@
+// Dependencies
 import { observable } from 'riot';
 
 // Status codes
 const PENDING = 1;
 const LOADED = 2;
 
+// Store
 class BaseStore {
   constructor() {
     this._model = BaseModel;
@@ -22,6 +24,7 @@ class BaseStore {
     return this._cache[id];
   }
 
+  // Fetch a URL and return the response, while handling duplicate requests
   async _fetch(request, target) {
     try {
       // Throw, if a request is currently pending
@@ -48,6 +51,7 @@ class BaseStore {
   }
 }
 
+// Model
 class BaseModel {
   constructor(store) {
     this._store = store;

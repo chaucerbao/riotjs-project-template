@@ -1,3 +1,4 @@
+// Dependencies
 import riot from 'riot';
 import route from 'riot-route';
 

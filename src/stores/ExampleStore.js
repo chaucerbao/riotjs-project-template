@@ -1,5 +1,7 @@
+// Dependencies
 import { BaseStore, BaseModel } from './Base';
 
+// Store
 class ExampleStore extends BaseStore {
   constructor() {
     super();
@@ -8,6 +10,7 @@ class ExampleStore extends BaseStore {
     this.list = [];
   }
 
+  // Fetch a list of resources
   async getList() {
     try {
       const items = await super._fetch(
@@ -22,6 +25,7 @@ class ExampleStore extends BaseStore {
   }
 }
 
+// Model
 class ExampleModel extends BaseModel {
   constructor(store) {
     super(store);
