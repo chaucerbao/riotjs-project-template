@@ -3,6 +3,11 @@ const src = path.resolve(__dirname, 'src');
 const dest = path.resolve(__dirname, 'public');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+
+const extractSass = new ExtractTextWebpackPlugin({
+  filename: '[contenthash].css'
+});
 
 const config = {
   context: src,
@@ -17,6 +22,7 @@ const config = {
   },
 
   plugins: [
+    extractSass,
     new HtmlWebpackPlugin({
       title: 'RiotJS Project Template',
       filename: path.join(dest, 'index.html')
@@ -34,6 +40,22 @@ const config = {
         test: /\.tag$/,
         use: [{ loader: 'babel-loader' }, { loader: 'riotjs-loader' }],
         include: [src]
+      },
+      {
+        test: /\.scss$/,
+        use: extractSass.extract({
+          use: [
+            { loader: 'css-loader', options: { sourceMap: true } },
+            {
+              loader: 'sass-loader',
+              options: {
+                includePaths: [path.join(src, 'styles'), src],
+                sourceMap: true
+              }
+            }
+          ]
+        }),
+        include: [src]
       }
     ]
   }
@@ -49,6 +71,8 @@ if (process.env.NODE_ENV !== 'production') {
   config.devServer = {
     historyApiFallback: true
   };
+
+  config.devtool = 'inline-source-map';
 }
 
 module.exports = config;
