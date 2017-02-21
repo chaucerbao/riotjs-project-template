@@ -32,7 +32,7 @@ const config = {
       },
       {
         test: /\.tag$/,
-        use: [{ loader: 'riotjs-loader' }],
+        use: [{ loader: 'babel-loader' }, { loader: 'riotjs-loader' }],
         include: [src]
       }
     ]
