@@ -3,7 +3,8 @@ import { observable } from 'riot';
 
 // Store
 class BaseStore {
-  constructor() {
+  constructor(http) {
+    this._http = http;
     this._model = BaseModel;
     this._cache = {};
     this._pendingRequests = [];
@@ -35,7 +36,7 @@ class BaseStore {
       this._pendingRequests.push(pendingKey);
 
       // Fetch the request
-      const response = await fetch(request);
+      const response = await this._http(request);
       const responseBody = await response.json();
 
       // Remove the `pending` status

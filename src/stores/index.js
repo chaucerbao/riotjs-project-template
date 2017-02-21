@@ -2,8 +2,10 @@
 import ExampleStore from './ExampleStore';
 
 // Stores
-const stores = {
-  exampleStore: new ExampleStore()
-};
+function stores(http) {
+  return {
+    exampleStore: new ExampleStore(http)
+  };
+}
 
 export default stores;

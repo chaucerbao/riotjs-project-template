@@ -3,8 +3,8 @@ import { BaseStore, BaseModel } from './Base';
 
 // Store
 class ExampleStore extends BaseStore {
-  constructor() {
-    super();
+  constructor(http) {
+    super(http);
 
     this._model = ExampleModel;
     this.list = [];
