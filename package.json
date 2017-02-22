@@ -6,9 +6,9 @@
   "author": "Alvin Chan <no@email.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server",
-    "build": "NODE_ENV=production node_modules/.bin/webpack -p",
-    "pretty": "node_modules/.bin/prettier --single-quote --write webpack.config.js 'src/**/*.js'",
+    "start": "webpack-dev-server",
+    "build": "NODE_ENV=production webpack -p",
+    "pretty": "prettier --single-quote --write webpack.config.js 'src/**/*.js' & stylefmt --recursive 'src/**/*.scss' & wait",
     "test": "ava"
   },
   "ava": {
@@ -56,6 +56,7 @@
     "prettier": "^0.18.0",
     "riotjs-loader": "^4.0.0",
     "sass-loader": "^6.0.1",
+    "stylefmt": "^5.1.2",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
   }
