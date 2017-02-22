@@ -1,9 +1,3 @@
-// Dependencies
-import riot from 'riot';
-
-// Modules
-import 'pages/page-layout';
-
 <page-homepage>
   <page-layout>
     <h1>Welcome home</h1>
@@ -16,6 +10,13 @@ import 'pages/page-layout';
   </page-layout>
 
   <script>
+    // Dependencies
+    import riot from 'riot';
+
+    // Modules
+    import 'pages/page-layout';
+
+    // Tag
     const tag = this;
     const { exampleStore } = opts.stores;
 

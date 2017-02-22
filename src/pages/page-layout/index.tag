@@ -1,6 +1,3 @@
-// Dependencies
-import riot from 'riot';
-
 <page-layout>
   <header>
     <nav>
@@ -14,4 +11,9 @@ import riot from 'riot';
   </main>
 
   <footer />
+
+  <script>
+    // Dependencies
+    import riot from 'riot';
+  </script>
 </page-layout>
