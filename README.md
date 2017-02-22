@@ -24,4 +24,15 @@ Run tests against the source and, optionally, wait for changes.
 npm test [-- --watch]
 ```
 
+Format the source files.
+```sh
+npm run pretty
+```
+
+### Production
+Build the application with production optimizations.
+```sh
+npm run build
+```
+
 [RiotJS]: http://riotjs.com/
