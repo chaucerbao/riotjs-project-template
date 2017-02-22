@@ -35,4 +35,9 @@ Build the application with production optimizations.
 npm run build
 ```
 
+Remove the generated production files.
+```sh
+npm run clean
+```
+
 [RiotJS]: http://riotjs.com/
