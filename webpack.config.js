@@ -74,7 +74,8 @@ if (process.env.NODE_ENV !== 'production') {
   });
 
   config.devServer = {
-    historyApiFallback: true
+    historyApiFallback: true,
+    stats: 'errors-only'
   };
 
   config.devtool = 'inline-source-map';
