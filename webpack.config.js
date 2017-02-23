@@ -68,17 +68,17 @@ const config = {
 
 // Development settings
 if (process.env.NODE_ENV !== 'production') {
-  config.output = Object.assign(config.output, {
-    publicPath: '/',
-    path: dest
+  Object.assign(config, {
+    output: {
+      publicPath: '/',
+      path: dest
+    },
+    devServer: {
+      historyApiFallback: true,
+      stats: 'errors-only'
+    },
+    devtool: 'inline-source-map'
   });
-
-  config.devServer = {
-    historyApiFallback: true,
-    stats: 'errors-only'
-  };
-
-  config.devtool = 'inline-source-map';
 }
 
 module.exports = config;
