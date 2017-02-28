@@ -20,6 +20,7 @@ class ExampleStore extends BaseStore {
       this.list = items.map(item => super._load(item.id, item));
       this.trigger('list:loaded', this.list);
     } catch (err) {
+      throw err;
     }
   }
 }

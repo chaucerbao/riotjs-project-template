@@ -25,7 +25,7 @@ const config = {
     extractSass,
     new HtmlWebpackPlugin({
       title: 'RiotJS Project Template',
-      filename: path.join(dest, 'index.html')
+      filename: path.join('..', 'index.html')
     })
   ],
 
@@ -70,13 +70,14 @@ const config = {
 if (process.env.NODE_ENV !== 'production') {
   Object.assign(config, {
     output: {
-      publicPath: '/',
       path: dest
     },
+
     devServer: {
       historyApiFallback: true,
       stats: 'errors-only'
     },
+
     devtool: 'inline-source-map'
   });
 }
