@@ -1,11 +1,11 @@
 // Dependencies
-import ExampleStore from './ExampleStore';
+import ExampleStore from './ExampleStore'
 
 // Stores
-function stores(http) {
+function stores (http) {
   return {
     exampleStore: new ExampleStore(http)
-  };
+  }
 }
 
-export default stores;
+export default stores

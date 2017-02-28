@@ -1,13 +1,14 @@
-const path = require('path');
-const src = path.resolve(__dirname, 'src');
-const dest = path.resolve(__dirname, 'public');
+const path = require('path')
+const src = path.resolve(__dirname, 'src')
+const dest = path.resolve(__dirname, 'public')
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
 
 const extractSass = new ExtractTextWebpackPlugin({
   filename: '[contenthash].css'
-});
+})
 
 const config = {
   context: src,
@@ -22,6 +23,9 @@ const config = {
   },
 
   plugins: [
+    new webpack.ProvidePlugin({
+      riot: 'riot'
+    }),
     extractSass,
     new HtmlWebpackPlugin({
       title: 'RiotJS Project Template',
@@ -64,7 +68,7 @@ const config = {
     extensions: ['.tag', '.js', '.json'],
     modules: [src, 'node_modules']
   }
-};
+}
 
 // Development settings
 if (process.env.NODE_ENV !== 'production') {
@@ -79,7 +83,7 @@ if (process.env.NODE_ENV !== 'production') {
     },
 
     devtool: 'inline-source-map'
-  });
+  })
 }
 
-module.exports = config;
+module.exports = config

@@ -11,9 +11,4 @@
   </main>
 
   <footer />
-
-  <script>
-    // Dependencies
-    import riot from 'riot';
-  </script>
 </page-layout>

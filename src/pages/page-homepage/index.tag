@@ -10,30 +10,27 @@
   </page-layout>
 
   <script>
-    // Dependencies
-    import riot from 'riot';
-
     // Modules
-    import 'pages/page-layout';
+    import 'pages/page-layout'
 
     // Tag
-    const tag = this;
-    const { exampleStore } = opts.stores;
+    const tag = this
+    const { exampleStore } = opts.stores
 
-    tag.items = [];
+    tag.items = []
 
-    function setItems(items) {
-      tag.items = items;
-      tag.update();
+    function setItems (items) {
+      tag.items = items
+      tag.update()
     }
 
     tag.on('mount', () => {
-      exampleStore.on('list:loaded', setItems);
-      exampleStore.getList();
-    });
+      exampleStore.on('list:loaded', setItems)
+      exampleStore.getList()
+    })
 
     tag.on('unmount', () => {
-      exampleStore.off('list:loaded', setItems);
-    });
+      exampleStore.off('list:loaded', setItems)
+    })
   </script>
 </page-homepage>

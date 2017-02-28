@@ -1,32 +1,32 @@
 // Dependencies
-import riot from 'riot';
-import route from 'riot-route';
+import riot from 'riot'
+import route from 'riot-route'
 
-function router(mountPoint, stores) {
+function router (mountPoint, stores) {
   // Load page asynchronously
-  async function load(page, opts = {}) {
+  async function load (page, opts = {}) {
     try {
-      await import(`pages/page-${page}/index.tag`);
+      await import(`pages/page-${page}/index.tag`)
 
       riot.mount(
         mountPoint,
         `page-${page}`,
         Object.assign(opts, { stores, route })
-      );
+      )
     } catch (err) {
-      throw err;
+      throw err
     }
   }
 
   // Pages
-  route('/', () => load('homepage'));
-  route('*', () => load('not-found'));
+  route('/', () => load('homepage'))
+  route('*', () => load('not-found'))
 
   // Start routing
-  route.base('/');
-  route.start(true);
+  route.base('/')
+  route.start(true)
 
-  return route;
+  return route
 }
 
-export default router;
+export default router

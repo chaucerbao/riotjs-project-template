@@ -24,9 +24,14 @@ Run tests against the source and, optionally, wait for changes.
 npm test [-- --watch]
 ```
 
-Format the source files.
+Lint the source files.
 ```sh
-npm run pretty
+npm run lint
+```
+
+Attempt to fix lint errors and format the source files.
+```sh
+npm run lint:fix
 ```
 
 ### Production

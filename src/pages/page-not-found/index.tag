@@ -4,10 +4,7 @@
   </page-layout>
 
   <script>
-    // Dependencies
-    import riot from 'riot';
-
     // Modules
-    import 'pages/page-layout';
+    import 'pages/page-layout'
   </script>
 </page-not-found>
