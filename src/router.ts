@@ -2,8 +2,8 @@
 import { mount } from 'riot'
 import route from 'riot-route'
 
-export default mountPoint => {
-  const mountPage = async (page, opts = {}) => {
+export default (mountPoint: HTMLElement) => {
+  const mountPage = async (page: string, opts: object = {}) => {
     await import(`./pages/${page}`)
     mount(mountPoint, page, opts)
   }
@@ -12,7 +12,9 @@ export default mountPoint => {
 
   // Routes
   route('/', () => mountPage('homepage'))
-  route('/nested/*-*', (id, title) => mountPage('homepage', { id, title }))
+  route('/nested/*-*', (id: number, title: string) =>
+    mountPage('homepage', { id, title })
+  )
 
   // Start the router
   route.start(true)
