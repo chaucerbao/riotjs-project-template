@@ -3,6 +3,8 @@
     "module": "commonjs",
     "target": "es2015",
     "sourceMap": true,
-    "strict": false
+    "strict": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   }
 }
